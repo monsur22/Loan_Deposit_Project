@@ -25,7 +25,7 @@ class DepositpacakeController extends Controller
     public function add_deposit_pakage(Request $request){
         $add_deposite_pakage= new Depositpakage();
         $add_deposite_pakage->d_pakage_name=$request->d_pakage_name;
-        $add_deposite_pakage->d_currency=$request->d_currency;
+   
         $add_deposite_pakage->d_amount=$request->d_amount;
         $add_deposite_pakage->d_Interest=$request->d_Interest;
         $add_deposite_pakage->d_total_amount=$request->d_total_amount;
@@ -66,7 +66,7 @@ class DepositpacakeController extends Controller
     //     return $update_deposite_pakage;
     DB::table('depositpakages')->where('id',$request->id)->update([
         'd_pakage_name'=>$request->d_pakage_name,
-        'd_currency'=>$request->d_currency,
+       
         'd_amount'=>$request->d_amount,
         'd_Interest'=>$request->d_Interest,
         'd_total_amount'=>$request->d_total_amount,

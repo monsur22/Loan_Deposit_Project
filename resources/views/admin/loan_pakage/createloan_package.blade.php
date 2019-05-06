@@ -24,15 +24,7 @@
                         <label>Loan Pakage Name</label>
                         <input class="form-control" type="text" id="l_pakage_name" name="l_pakage_name" placeholder="">
                       </div>
-                            <div class="col-sm-4 form-group">
-                            <label>Currency Type</label>
-                            <select class="form-control" name="l_currency" id="l_currency">
-                                <option value="BDT">BDT</option>
-                                <option value="USD">USD</option>
-                               
-                                
-                            </select>
-                        </div>
+                        
                     
                         <div class="col-sm-4 form-group">
                             <label>Loan Amount</label>
@@ -127,15 +119,7 @@
                           <input class="form-control l_pakage_name" type="text" id=" l_pakage_name" name=" l_pakage_name" placeholder="">
                          
                         </div>
-                              <div class="col-sm-4 form-group">
-                              <label>Currency Type</label>
-                              <select class="form-control l_currency" name=" l_currency" id=" l_currency">
-                                  <option value="BDT">BDT</option>
-                                  <option value="USD">USD</option>
-                                 
-                                  
-                              </select>
-                          </div>
+                              
                       
                           <div class="col-sm-4 form-group">
                               <label>Loan Amount</label>
@@ -212,7 +196,7 @@
                     <div class="ibox-title">Loan Pakage List</div>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"
                             style="margin-right: 60px;">
-                        Add New Pakage
+                        Add New Loan Pakage
                     </button>
                 </div>
             <div class="ibox-body">

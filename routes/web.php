@@ -318,21 +318,27 @@ Route::get('/user/expense-income-report', 'User\UserAccountReportController@expe
 
 
 
-//===================Creative Loan  Start From Here ===============================
+//***************************************Creative Loan  Start From Here **********************************
 
 //===================Member Registration  =====================
 
 Route::get('/create-member', 'RegistrationController@member_form');
 Route::post('/create-member', 'RegistrationController@add_member');
+Route::get('/manage-member','RegistrationController@manage_member');
+Route::get('/edit-member/{id}','RegistrationController@member_edit');
+Route::post('/update-member-details','RegistrationController@member_details_update');
+Route::get('/regi-member/delete/{id}','RegistrationController@regi_member_delet');
+Route::get('/regi-member-details/view/{id}','RegistrationController@regi_member_delet_view');
+Route::get('/registration-member-status/{id}',[
+    'uses'=>'RegistrationController@member_status_update',
+    'as'=>'member_status_update'
+    ]);
 // ===============Loan Pakage===============
 Route::get('/loan-pakage', 'LoanpackageController@loan_add_page');
 Route::post('/loan-pakage', 'LoanpackageController@loan_add');
-// Route::get('/manage-loan-pakage', 'LoanpackageController@manage_laon_pakage');
-//Route::get('/edit-loan-pakage/{id}', 'LoanpackageController@edit_laon_pakage');
 Route::get('/edit-loan-pakage', 'LoanpackageController@l_edit_laon_pakage')->name('edit_loan');
 Route::post('/update-loan-pakage', 'LoanpackageController@update_laon_pakage');
 Route::get('/delete-loan-pakage/{id}', 'LoanpackageController@delete_laon_pakage');
-// Route::get('/view-loan-pakage/{id}', 'LoanpackageController@view_laon_pakage');
 Route::get('/loan-status/{id}',[
     'uses'=>'LoanpackageController@loan_status_update',
     'as'=>'loan_status'
@@ -342,7 +348,6 @@ Route::get('/loan-status/{id}',[
 
 Route::get('/deposit-package', 'DepositpacakeController@index');
 Route::post('/deposit-package', 'DepositpacakeController@add_deposit_pakage');
-//Route::get('/edit-deposit-package/{id}', 'DepositpacakeController@edit_deposit_pakage');
 Route::get('/edit-deposit-package', 'DepositpacakeController@d_edit_deposit_pakage')->name('edit_deposit');
 Route::post('/update-deposit-package', 'DepositpacakeController@update_deposit_pakage');
 Route::get('/delete-deposit-package/{id}', 'DepositpacakeController@delete_deposit_pakage');
@@ -350,3 +355,252 @@ Route::get('/deposit-status/{id}',[
     'uses'=>'DepositpacakeController@deposit_status_update',
     'as'=>'deposit_status'
     ]);
+
+    //=========================== share   pacake================/
+
+Route::get('/share-package', 'sharepakageController@index');
+Route::post('/share-package', 'sharepakageController@add_share_pakage');
+Route::get('/edit-share-package', 'sharepakageController@s_edit_share_pakage')->name('edit_share');
+Route::post('/update-share-package', 'sharepakageController@update_share_pakage');
+Route::get('/delete-share-package/{id}', 'sharepakageController@delete_share_pakage');
+Route::get('/share-status/{id}',[
+    'uses'=>'sharepakageController@share_status_update',
+    'as'=>'share_status'
+    ]);
+
+//=========================== Depositor ================/
+Route::get('/depositor-add', 'dipositorContorller@add_dipositor');
+Route::post('/depositor-add', 'dipositorContorller@add_dipositor_action');
+Route::get('/depositor-edit/{id}', 'dipositorContorller@depositor_edit');//ajax api
+Route::post('/depositor-update', 'dipositorContorller@depositor_update');
+Route::get('/depositor-delete/{id}', 'dipositorContorller@depositor_delete');
+Route::get('/depositor/{id}', 'dipositorContorller@depositor');//ajax api
+
+
+
+Route::get('/deposit-active-status/{id}',[
+    'uses'=>'dipositorContorller@deposit_active_statas',
+    'as'=>'deposit_active_statas'
+    ]);
+//=========================== Loan ================/
+Route::get('/loan-add', 'loanController@add_loan');
+Route::post('/loan-add', 'loanController@add_loan_action');
+Route::get('/loan-edit/{id}', 'loanController@loan_edit');//ajax api
+Route::post('/loan-update', 'loanController@loan_update');
+Route::get('/loan-delete/{id}', 'loanController@loan_delete');
+Route::get('/loan/{id}', 'loanController@loan');//ajax api
+
+Route::get('/loan-active-status/{id}',[
+    'uses'=>'loanController@loan_active_statas',
+    'as'=>'loan_active_statas'
+    ]);
+
+
+
+
+
+//============================Collection====================
+//////loan collection
+ Route::get('/loan-collection','collectionController@loan_collecttion');
+ Route::post('/loan-collection','collectionController@loan_collecttion_add');
+ Route::get('/loan-collection/edit/{id}','collectionController@loan_collecttion_edit');
+ Route::post('/loan-collection/update','collectionController@loan_collecttion_update');
+ Route::get('/loan-collection/delete/{id}','collectionController@loan_collecttion_delete');
+ Route::get('/loan-collection/report/{id}','collectionController@loan_collecttion_report');
+ Route::get('/loan-collection-status/{id}',[
+    'uses'=>'collectionController@loan_collection_statas',
+    'as'=>'loan_collection_statas'
+    ]);
+Route::get('/loan-details/{id}', 'collectionController@loan_details');//ajax api
+Route::get('/loan-collection-report','collectionController@loan_report_by_collection');
+
+
+//Route::get('/loan-add-filed/{id}', 'collectionController@loan_add_filleble');//ajax api
+
+//  Route::get('/test','collectionController@test');
+
+//share collection
+Route::get('/share-collection','collectionController@share_collecttion');
+Route::post('/share-collection','collectionController@share_collecttion_add');
+Route::get('/share-collection/edit/{id}','collectionController@share_collecttion_edit');
+Route::post('/share-collection/update','collectionController@share_collecttion_update');
+Route::get('/share-collection/delete/{id}','collectionController@share_collecttion_delete');
+ Route::get('/share-collection/report/{id}','collectionController@share_collecttion_report');
+ Route::get('/share-details/{id}', 'collectionController@share_details');//ajax api
+ Route::get('/share-collection-report', 'collectionController@share_report_by_collection');
+
+Route::get('/share-collection-status/{id}',[
+   'uses'=>'collectionController@share_collection_statas',
+   'as'=>'share_collection_statas'
+   ]);
+// deposit collection
+Route::get('/deposit-collection','collectionController@deposit_collection');
+Route::post('/deposit-collection','collectionController@deposit_collection_add');
+Route::get('/deposit-collection/edit/{id}','collectionController@deposit_collecttion_edit');
+Route::post('/deposit-collection/update','collectionController@deposit_collecttion_update');
+Route::get('/deposit-collection/delete/{id}','collectionController@deposit_collecttion_delete');
+Route::get('/deposit-collection/report/{id}','collectionController@deposit_collecttion_report');
+Route::get('/deposit-details/{id}', 'collectionController@deposit_details');//ajax api
+
+ Route::get('/deposit-collection-status/{id}',[
+    'uses'=>'collectionController@deposit_collection_statas',
+    'as'=>'deposit_collection_statas'
+    ]);
+Route::get('/deposit-collection-report','collectionController@deposit_report_by_collection');
+
+//===================================wihtdraw=================================
+
+/***********Share withdraw *************/
+Route::get('/share-withdraw','withdrawController@share_withdraw');
+Route::post('/share-withdraw','withdrawController@share_withdraw_add');
+Route::get('/share-withdraw/edit/{id}','withdrawController@share_withdraw_edit');
+Route::post('/share-withdraw/update','withdrawController@share_withdraw_update');
+Route::get('/share-withdraw/delete/{id}','withdrawController@share_withdraw_delete');
+Route::get('/share-withdraw/report/{id}','withdrawController@share_withdraw_report');
+Route::get('/share-withdraw/{id}', 'collectionController@share_withdraw_details');//ajax api
+Route::get('/share-withdraw-report', 'withdrawController@share_report_by_withdraw');
+
+Route::get('/share-withdraw-status/{id}',[
+   'uses'=>'withdrawController@share_withdraw_statas',
+   'as'=>'share_withdraw_statas'
+   ]);
+
+/***********Diposit withdraw *************/
+Route::get('/diposit-withdraw','withdrawController@deposit_withdraw');
+Route::post('/diposit-withdraw','withdrawController@deposit_withdraw_add');
+Route::get('/diposit-withdraw/edit/{id}','withdrawController@deposit_withdraw_edit');
+Route::post('/diposit-withdraw/update','withdrawController@deposit_withdraw_update');
+Route::get('/diposit-withdraw/delete/{id}','withdrawController@deposit_withdraw_delete');
+Route::get('/diposit-withdraw/report/{id}','withdrawController@diposit_withdraw_report');
+Route::get('/diposit-withdraw/{id}', 'collectionController@deposit_withdraw_details');//ajax api
+Route::get('/diposit-withdraw-report', 'withdrawController@deposit_report_by_withdraw');
+
+Route::get('/diposit-withdraw-status/{id}',[
+   'uses'=>'withdrawController@deposit_withdraw_statas',
+   'as'=>'deposit_withdraw_statas'
+   ]);
+
+
+   //////////ledger Report
+Route::get('/deposit-loan-share/ledger-report', 'withdrawController@collection_withdraw_report');
+
+
+
+//**********************************Prduct Mangement************************************************** */
+
+////category 
+Route::get('/category-setup',['uses'=>'ProductMnangeCategoryController@index','as'=>'categorystup']);
+Route::post('/category-add',['uses'=>'ProductMnangeCategoryController@postcategory','as'=>'addcategroy']);
+Route::get('/category-status/{id}/status',['uses'=>'ProductMnangeCategoryController@statusupdate','as'=>'categorystatus']);
+Route::get('/category-update/{id}/category',['uses'=>'ProductMnangeCategoryController@categoryupdateform','as'=>'categoryedit']);
+Route::post('/category-update/action',['uses'=>'ProductMnangeCategoryController@updatecategory','as'=>'updatecategory']);
+Route::get('/category-delete/{id}',['uses'=>'ProductMnangeCategoryController@deletecategory','as'=>'categorydelete']);
+
+///Brand setup
+
+Route::get('/barnd-setup',['uses'=>'ProductbrandController@index','as'=>'brandsetup']);
+Route::post('/brand-add',['uses'=>'ProductbrandController@addbrand','as'=>'addbrand']);
+Route::get('/brand-status/{id}/active-inactin',['uses'=>'ProductbrandController@updatestatus','as'=>'status']);
+Route::get('/brand-edit-form/{id}/brand-edit',['uses'=>'ProductbrandController@editbrand','as'=>'brandedit']);
+Route::post('/band-update/',['uses'=>'ProductbrandController@updatebrand','as'=>'updatebrand']);
+Route::get('/brand-delete/{id}/delete',['uses'=>'ProductbrandController@deletebrand','as'=>'deletebrand']);
+
+//Product Color
+Route::get('/group-setup',['uses'=>'ProductcolorController@index','as'=>'groupsetup']);
+Route::post('/group-add',['uses'=>'ProductcolorController@addgroup','as'=>'groupadd']);
+Route::get('/group-status/{id}/status',['uses'=>'ProductcolorController@status','as'=>'gstatus']);
+Route::get('/group-update/{id}/edit',['uses'=>'ProductcolorController@groupeditform','as'=>'editegroup']);
+Route::post('/group-update-main',['uses'=>'ProductcolorController@updategroupthis','as'=>'updategroupas']);
+Route::get('/gropu-delete/{id}',['uses'=>'ProductcolorController@deletegroup','as'=>'deletegroup']);
+ 
+///size
+
+Route::get('/size-setup','ProductsizeController@index')->name('sizesetup');
+Route::post('/save-size','ProductsizeController@saveSize')->name('save-size');
+Route::get('/size-status/{id}/status','ProductsizeController@statusUpdate')->name('sizestatus');
+Route::get('/size-edit/{id}/size','ProductsizeController@sizeEdit')->name('size-edit');
+Route::post('/update-size/action','ProductsizeController@sizeUpdate')->name('updateSize');
+Route::get('/size-delete/{id}','ProductsizeController@deletesize')->name('sizedelete');
+
+//product Item
+Route::get('/productItem','ItemproductController@index')->name('productItem');
+Route::post('/Item/itemadd','ItemproductController@storeItem')->name('additems');
+
+Route::get('/Item/itemedit','ItemproductController@editItem')->name('edititems');
+Route::post('/Item/itemupdate','ItemproductController@updateItem')->name('updateitems');
+
+Route::get('/Item/item/edit/{id}','ItemproductController@edit_item')->name('edit_item');
+Route::post('/Item/item/update','ItemproductController@update_item')->name('update_item');
+
+Route::post('/item/delete', 'ItemproductController@destroy');
+
+Route::post('item/import','ItemproductController@saveExcelData')->name('importExcelData');
+Route::get('/downloadExcel/xlsx','ItemproductController@downloadExcel');
+
+// **************************************************Purches Management********************************
+//local Purches
+//Route::get('/local-purchase','purchesmanagementController@local_purches');
+Route::get('/local-purchase', 'purchesmanagementController@Local_purchaselist')->name('local-purchase');
+Route::post('/destroyCart','purchesmanagementController@destroyPurchaseReturnCart')->name('destroyPurchaseReturnCart');
+Route::get('/save-Purchase-Invoice','purchesmanagementController@savePurchaseInvoice')->name('savePurchaseInvoice');
+Route::post('/save-purchase-item','purchesmanagementController@confirmPurchase')->name('local-purchase-save');
+
+
+//purches Return 
+Route::get('/return-purchases', 'purchesmanagementController@Return_purchaselist')->name('return-purchases');
+Route::get('/purchace-customerInvoice-search', 'purchesmanagementController@customerInvoice')->name('customerInvoice');
+Route::get('/purchace-supplierInvoice-search', 'purchesmanagementController@supplierInvoice')->name('supplierInvoice');
+Route::post('/return-purchase/purchaseConfirm','purchesmanagementController@confirmPurchaseReturn')->name('confirmPurchaseReturn');
+Route::post('/return-purchases/AddToCart','purchesmanagementController@updatePurchaseReturn')->name('updatePurchaseReturn');
+Route::post('/return-purchases/destroyCart','purchesmanagementController@destroyPurchaseReturnCart')->name('destroyPurchaseReturnCart');
+Route::post('/return-purchases/removeCartItem','purchesmanagementController@removePurchaseReturnCartItem')->name('removePurchaseReturnCartItem');
+Route::get('/return-purchases/editPurchaseData','purchesmanagementController@getEditPurchaseData')->name('getEditPurchaseData');
+
+// Product Sales
+Route::get('/product-sale/',['uses'=>'productsale@index','as'=>'productsale']);
+Route::post('/product-sale/fetch',['uses'=>'productsale@fetch','as'=>'autocomplete.fetch']);
+Route::get('/product-sale/info', 'productsale@findCustomer')->name('findCustomer');
+Route::post('/Search/Products/','productsale@searchProducts')->name('searchingdata');
+Route::get('/Cart/Delete/{storid}','productsale@getRemoveItem')->name('product.delete');
+Route::get('/Cart/Clean','productsale@cleanCart')->name('sessions');
+Route::post('/Sales/InvoiceAdd','productsale@addSaleInvoice')->name('addSaleInvoice');
+
+//Return Sales item
+Route::get('/Product/SaleReturn','productsale@productSaleReturn')->name('productsaleReturn');
+Route::get('/Product/SaleReturn/Filter/Customer/Invoice','productsale@FilterCustomerInvoice')->name('FilterCustomerInvoice');
+Route::get('/Product/SaleReturn/EditData','productsale@getEditData')->name('getEditData');
+Route::post('/Product/UpdateReturn','productsale@updateReturn')->name('updateReturn');
+Route::post('/Product/Confirm/SalesReturn','productsale@confirmSalesReturn')->name('confirmSalesReturn');
+//----------- Destroy Sales return Cart-------------------------------------
+
+Route::post('/product/SalesReturn/destroy','productsale@destroyCart')->name('destroySalesReturnCart');
+Route::post('/product/salesReturn/remove','productsale@removeItem')->name('removeItem');
+
+
+//Purches Report
+
+// Route::get('/expence-statement', 'statementControler@expence_statement');
+// Route::get('/expence-statement-report/{id}', 'statementControler@expence_statement_report');
+
+Route::get('/purches-reoprt', 'purchesmanagementController@purches_reoprt');
+Route::get('/purches-reoprt-by-Id/{invoice}', 'purchesmanagementController@purches_reoprt_by_id');
+Route::get('/purches-return-reoprt', 'purchesmanagementController@purches_return_reoprt');
+Route::get('/purches-return-reoprt-by-Id/{invoice}', 'purchesmanagementController@purches_return_reoprt_by_id');
+
+// Product Sale Rport
+
+Route::get('/sales/dateWisereport','productsale@salesdateWiseReport')->name('dateWiseReport');
+Route::get('/sales/invoice/info/{invoice}','productsale@salesinvoiceInfo')->name('invoiceInfo');
+
+//sale purches return
+Route::get('/sales-return/report','productsale@sales_return_report')->name('salesReturnReport');
+Route::get('/sales-return-report-by-id/{invoice}','productsale@sales_return_report_by_id')->name('returnSalesInvoiceInfo');
+
+//stock Report
+Route::get('/stock-report','purchesmanagementController@stock_report');
+//testing add cart
+// Route::get('/test-page-load', 'testController@loadpage');
+// Route::post('/test-page-load', 'testController@loadpage_add_cart');
+// Route::get('/show-cart', 'testController@showcart');
+// Route::get('/product-sale/',['uses'=>'testController@index','as'=>'productsale']);
+

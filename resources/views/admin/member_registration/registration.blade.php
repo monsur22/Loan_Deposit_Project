@@ -2,11 +2,7 @@
 @section('content')
 <div class="page-content fade-in-up">
       
-      <div class="panel">
-        <div class="panel-body">
-          <h3 class="text-center"> <b>New Member Registration</b> </h3>
-        </div>
-      </div>
+
 
 
           <div class="panel-body">
@@ -23,8 +19,8 @@
       
                                           ?>
                                         <div class="form-group">
-                                          <label for="usr">Registration Number</label>
-                                          <input type="text" class="form-control input-lg m-bot15" id="usr" name="reg_number"value="RN{{$date.$lastid++}}" readonly>
+                                          <label for="usr">  Registration Number</label>
+                                          <input type="text" class="form-control input-lg m-bot15" id="usr" name="reg_number"value="REG{{$date.$lastid++}}" readonly>
                                        </div>
                                    </div>
                                    <div class="col-sm-3">
@@ -36,7 +32,7 @@
                                        ?>
                                         <div class="form-group">
                                           <label for="usr">Account Number</label>
-                                          <input type="text" class="form-control input-lg m-bot15" id="usr"value="AC{{$date.$lastid++}}" name="ac_number" readonly>
+                                          <input type="text" class="form-control input-lg m-bot15" id="usr"value="ACC{{$date.$lastid++}}" name="ac_number" readonly>
                                        </div>
                                    </div>
                                     <div class="col-sm-3">
@@ -45,6 +41,7 @@
                                           <input type="text" class="form-control input-lg m-bot15" id="usr" name="reg_name" placeholder="Frist Name" required>
                                        </div>
                                    </div>
+                                   
                                   
                               <div class="col-sm-3">
                                  <div class="form-group">
@@ -52,15 +49,27 @@
                                  <input type="text" class="form-control input-lg m-bot15" id="usr" name="reg_father_name" placeholder="Father Name" required>
                                  </div>
                               </div>
+                              <div class="col-sm-3">
+                                    <div class="form-group">
+                                    <label for="usr">Father Occopation</label>
+                                    <input type="text" class="form-control input-lg m-bot15" id="usr" name="reg_father_oco" placeholder="Father Name" required>
+                                    </div>
+                                 </div>
 
                                     
 
-                                    <div class="col-sm-3">
-                                    <div class="form-group">
-                                <label for="usr">Mother Name</label>
-                                <input type="text" class="form-control input-lg m-bot15" id="usr" name="reg_mother_name" placeholder="Mother Name" required>
-                              </div>
+                              <div class="col-sm-3">
+                                          <div class="form-group">
+                                    <label for="usr">Mother Name</label>
+                                    <input type="text" class="form-control input-lg m-bot15" id="usr" name="reg_mother_name" placeholder="Mother Name" required>
+                                    </div>
                                  </div>
+                                 <div class="col-sm-3">
+                                       <div class="form-group">
+                                 <label for="usr">Mother Occopation</label>
+                                 <input type="text" class="form-control input-lg m-bot15" id="usr" name="reg_mother_occo" placeholder="Mother Name" required>
+                                 </div>
+                              </div>
                                     <div class="col-sm-3">
                                         <div class="form-group  date">
                                          <label for="usr">Date Of Birth</label>
@@ -72,10 +81,10 @@
                                     <div class="form-group">
                                 <label for="usr">Profession</label>
                                <select name="reg_profession" class="form-control input-lg m-bot15" required>
-                                 <option value="1">Business</option>
-                                 <option value="2">Farmer</option>
-                                 <option value="3">Job Holder</option>
-                                 <option value="4">Student</option>
+                                 <option value="Business">Business</option>
+                                 <option value="Farmer">Farmer</option>
+                                 <option value="Job Holder">Job Holder</option>
+                                 <option value="Student">Student</option>
 
                                </select>
                               </div>
@@ -87,6 +96,12 @@
                                        <input type="text" class="form-control input-lg m-bot15" id="usr" name="reg_phone" placeholder="Phone Number" required>
                                     </div>
                               </div>
+                              <div class="col-sm-3">
+                                 <div class="form-group">
+                                   <label for="usr">NID</label>
+                                   <input type="number" class="form-control input-lg m-bot15" id="usr" name="reg_nid" placeholder="NID" required>
+                                </div>
+                            </div>
                                  <div class="col-sm-6">
                                     <div class="form-group">
                                 <label for="usr">Present Address</label>
@@ -107,7 +122,7 @@
                                  <div class="row">
                                      
                                  
-                                       <div class="col-sm-6">
+                                       <div class="col-sm-3">
                                             
                                     
                                           <div class="form-group">
@@ -115,21 +130,21 @@
                                             <input type="text" class="form-control input-lg m-bot15" id="usr" name="em_name"value="" placeholder="Name">
                                          </div>
                                      </div>
-                                     <div class="col-sm-6">
+                                     <div class="col-sm-3">
                                      
                                           <div class="form-group">
                                             <label for="usr">Relation</label>
                                             <input type="text" class="form-control input-lg m-bot15" id="usr"value="" name="em_relation"placeholder="Relation" >
                                          </div>
                                      </div>
-                                      <div class="col-sm-6">
+                                      <div class="col-sm-3">
                                           <div class="form-group">
                                             <label for="usr">Phone Number</label>
                                             <input type="text" class="form-control input-lg m-bot15" id="usr" name="em_phone" placeholder="Phone Number" >
                                          </div>
                                      </div>
                                     
-                                <div class="col-sm-6">
+                                <div class="col-sm-3">
                                    <div class="form-group">
                                    <label for="usr">Adress</label>
                                    <input type="text" class="form-control input-lg m-bot15" id="usr" name="em_adress" placeholder="Adress" >
@@ -145,29 +160,30 @@
                                     <div class="row">
                                         
                                     
-                                          <div class="col-sm-6">
+                                          <div class="col-sm-3">
                                                
                                        
                                              <div class="form-group">
                                                <label for="usr">Nominee Name</label>
-                                               <input type="text" class="form-control input-lg m-bot15" id="usr" name="no_name"value="" placeholder="Name">
+                                               <input type="text" class="form-control input-lg m-bot15" id="usr" name="no_name"value="" placeholder="Nominee Name">
                                             </div>
                                         </div>
-                                        <div class="col-sm-6">
+                                     
+                                        <div class="col-sm-3">
                                         
                                              <div class="form-group">
                                                <label for="usr">Relation</label>
                                                <input type="text" class="form-control input-lg m-bot15" id="usr"value="" name="no_relation"placeholder="Relation" >
                                             </div>
                                         </div>
-                                         <div class="col-sm-6">
+                                         <div class="col-sm-3">
                                              <div class="form-group">
                                                <label for="usr">Phone Number</label>
                                                <input type="text" class="form-control input-lg m-bot15" id="usr" name="no_phone" placeholder="Phone Number" >
                                             </div>
                                         </div>
                                        
-                                   <div class="col-sm-6">
+                                   <div class="col-sm-3">
                                       <div class="form-group">
                                       <label for="usr">Adress</label>
                                       <input type="text" class="form-control input-lg m-bot15" id="usr" name="no_adress" placeholder="Adress" >
@@ -194,7 +210,7 @@
                                            <div class="col-sm-6">
                                            
                                                 <div class="form-group">
-                                                  <label for="usr">Member NID</label>
+                                                  <label for="usr">Nominee Photo</label>
                                                   <input type="file" class="form-control input-lg m-bot15" id="usr"value="" name="user_nid"placeholder="Relation" >
                                                </div>
                                            </div>
@@ -212,7 +228,7 @@
 
                                
           <!-- .row end -->
-
+      
                   
                              
                           </div>

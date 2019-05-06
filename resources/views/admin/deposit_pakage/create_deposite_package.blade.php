@@ -24,15 +24,7 @@
                         <label>Deposit Pakage Name</label>
                         <input class="form-control" type="text" id="d_pakage_name" name="d_pakage_name" placeholder="">
                       </div>
-                            <div class="col-sm-4 form-group">
-                            <label>Currency Type</label>
-                            <select class="form-control" name="d_currency" id="d_currency">
-                                <option value="BDT">BDT</option>
-                                <option value="USD">USD</option>
-                               
-                                
-                            </select>
-                        </div>
+                           
                     
                         <div class="col-sm-4 form-group">
                             <label>Deposit Amount</label>
@@ -121,15 +113,7 @@
                           <label>Deposit Pakage Name</label>
                           <input class="form-control d_pakage_name" type="text" id=" edit_d_pakage_name" name="d_pakage_name" placeholder="">
                         </div>
-                              <div class="col-sm-4 form-group">
-                              <label>Currency Type</label>
-                              <select class="form-control d_currency" name=" d_currency" id=" edit_d_currency">
-                                  <option value="BDT">BDT</option>
-                                  <option value="USD">USD</option>
-                                 
-                                  
-                              </select>
-                          </div>
+                            
                       
                           <div class="col-sm-4 form-group">
                               <label>Deposit Amount</label>
@@ -201,7 +185,7 @@
                     <div class="ibox-title"> Deposit Pakage List</div>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"
                             style="margin-right: 60px;">
-                       Add New Deposit Pakage 
+                       Add  Deposit Pakage 
                     </button>
                 </div>
             <div class="ibox-body">

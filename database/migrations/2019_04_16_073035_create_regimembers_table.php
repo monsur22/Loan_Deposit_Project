@@ -33,7 +33,7 @@ class CreateRegimembersTable extends Migration
             $table->string('no_relation')->nullable();
             $table->string('no_phone')->nullable();
             $table->text('no_adress')->nullable();
-            $table->string('user_photo')->nullable();
+            $table->string('reg_per_adress')->nullable();
             $table->string('user_nid')->nullable();
             $table->timestamps();
         });

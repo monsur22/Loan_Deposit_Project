@@ -18,7 +18,7 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="col-sm-6">
                                     <div class="form-group">
                                      <label for="name">Group:<span class="star"></span></label>
-                                     <select name="ah_group_name" id="category" class="form-control">
+                                     <select name="ah_group_name" id="category" class="form-control" required>
                                          <option value="">---Select Group---</option>
                                          @foreach($groupdetails as $group)
                                      <option value="{{ $group->group_name }}">{{ $group->group_name }}</option>
@@ -30,7 +30,7 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="col-sm-6">
                                     <div class="form-group">
                                                      <label for="name">Category:<span class="star"></span></label>
-                                                     <select name="subcategory" id="subcategory" class="form-control">
+                                                     <select name="subcategory" id="subcategory" class="form-control" required>
                                                          <option value="">---Select Category---</option>
                                                     @foreach($catdetails as $category)
                                                     <optgroup label="{{ $category->cat_group_name }}">
@@ -46,7 +46,7 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="col-sm-6">
                                     <div class="form-group">
                                      <label for="code">Accont  Head Code</label>
-                                     <input type="text" class="form-control code" id="code" name="ac_head_code" placeholder="Accont  Head Code">
+                                     <input type="text" class="form-control code" id="code" name="ac_head_code" placeholder="Accont  Head Code" required>
                                      <input type="hidden" name="id" class="cId">
                                      <span class="text-danger">{{$errors->has('ac_head_code')? $errors->first('ac_head_code'):''}}</span>
                                    </div>
@@ -54,7 +54,7 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="col-sm-6">
                                     <div class="form-group">
                                      <label for="code">Accont  Head Name</label>
-                                     <input type="text" class="form-control code" id="code" name="ac_head_name" placeholder="Accont  Head Name">
+                                     <input type="text" class="form-control code" id="code" name="ac_head_name" placeholder="Accont  Head Name" required>
                                      <input type="hidden" name="id" class="cId">
                                      <span class="text-danger">{{$errors->has('ac_head_name')? $errors->first('ac_head_name'):''}}</span>
                                    </div>
@@ -66,7 +66,7 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="col-sm-6">
                                     <div class="form-group">
                                                      <label for="name">Account Type:<span class="star"></span></label>
-                                                     <select name="acc_type_name" id="" class="form-control">
+                                                     <select name="acc_type_name" id="" class="form-control" required>
                                                          <option value="">---Select Type---</option>
                                                          <option value="Dabit">Dabit</option>
                                                          <option value="Credit">Credit</option>
@@ -77,7 +77,7 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                 <div class="col-sm-6">     
                                     <div class="form-group">
                                         <label for="name">Transection Type:<span class="star"></span></label>
-                                        <select name="acc_tr_type_name" id="" class="form-control acc_tr_type_name">
+                                        <select name="acc_tr_type_name" id="" class="form-control acc_tr_type_name" required>
                                             <option value="">---Select Type---</option>
                                             <option value="Expense">Expense</option>
                                             <option value="Income">Income</option>
@@ -90,7 +90,7 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                 <div class="col-sm-6">
                                         <div class="form-group">
                                          <label for="code">Balance</label>
-                                         <input type="text" class="form-control ah_balance" id="code" name="ah_balance" placeholder="Balance">
+                                         <input type="text" class="form-control ah_balance" id="code" name="ah_balance" placeholder="Balance" required>
                                          <span class="text-danger">{{$errors->has('ah_balance')? $errors->first('ah_balance'):''}}</span>
                                        </div>
                             </div> 

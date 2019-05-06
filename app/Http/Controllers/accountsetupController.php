@@ -142,21 +142,6 @@ class accountsetupController extends Controller
         return view('admin.account.accounthead',['acheaddetail'=>$acheaddetail,'catdetails'=>$catdetails,'groupdetails'=>$groupdetails]);
       }
       public function achead_add(Request $request){
-        $this->Validate($request, [
-          'ah_group_name' => 'required',      
-          'ah_cat_name' => 'required',      
-          'ac_head_code' => 'required',      
-          'ac_head_name' => 'required',      
-          'acc_type_name' => 'required',      
-          'tra_type' => 'required',      
-          'ah_balance' => 'required',      
-          'accounthead_status' => 'required',      
-          'ah_date' => 'required',      
-          'time' => 'required',      
-         
-
-     ]);
-
 
 
         $ah_data=new Accounthead();

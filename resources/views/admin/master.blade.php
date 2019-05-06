@@ -12,10 +12,10 @@
     <link href="{{asset('public/admin/')}}/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="{{asset('public/admin/')}}/assets/vendors/themify-icons/css/themify-icons.css" rel="stylesheet" />
     <!-- PLUGINS STYLES-->
-      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-        <link href="{{asset('public/admin/')}}/assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="{{asset('public/admin/')}}/assets/vendors/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link href="{{asset('public/admin/')}}/assets/vendors/DataTables/datatables.min.css" rel="stylesheet" />
     <link href="{{asset('public/admin/')}}/assets/vendors/jvectormap/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
     <link href="{{asset('public/admin/css/bercodeform.css')}}" rel="stylesheet" />
     <!-- THEME STYLES-->
@@ -50,12 +50,19 @@
     <!-- CORE SCRIPTS-->
     <script src="{{asset('public/admin/')}}/assets/vendors/DataTables/datatables.min.js" type="text/javascript"></script>
     <script src="{{asset('public/admin/')}}/assets/js/app.min.js" type="text/javascript"></script>
+    <script src="{{asset('public/admin/')}}/assets/vendors/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
+    <script src="{{asset('public/admin/')}}/assets/js/scripts/form-plugins.js" type="text/javascript"></script>
 
-    
+    {{-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script> --}}
 </head>
 
 <body class="fixed-navbar">
-    <div class="page-wrapper">
+    <div class="page-wrapper" >
+     
         <!-- START HEADER-->
           @include('admin.includes.header')
 
@@ -67,7 +74,7 @@
        
 
         <!-- END SIDEBAR-->
-        <div class="content-wrapper">
+        <div class="content-wrapper"style="min-height: 1300px;">
             <!-- START PAGE CONTENT-->
          @yield('content')
 
@@ -75,10 +82,11 @@
             <!-- END PAGE CONTENT-->
           @include('admin.includes.footer')
       </div>
+           
     </div>
     <!-- BEGIN THEME CONFIG PANEL-->
     <div class="theme-config">
-        <div class="theme-config-toggle"><i class="fa fa-cog theme-config-show"></i><i class="ti-close theme-config-close"></i></div>
+        {{-- <div class="theme-config-toggle"><i class="fa fa-cog theme-config-show"></i><i class="ti-close theme-config-close"></i></div> --}}
         <div class="theme-config-box">
             <div class="text-center font-18 m-b-20">SETTINGS</div>
             <div class="font-strong">LAYOUT OPTIONS</div>
@@ -243,5 +251,54 @@
             ]*/
         });
     })
+</script>
+ <script>
+  $( function() {
+
+    $('#purchase_date').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+    $('#sles_date').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+
+  } );
+  </script>
+
+    <script>
+  @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type', 'info') }}";
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('message') }}");
+            break;
+
+        case 'warning':
+            toastr.warning("{{ Session::get('message') }}");
+            break;
+
+        case 'success':
+            toastr.success("{{ Session::get('message') }}");
+            break;
+
+        case 'error':
+            toastr.error("{{ Session::get('message') }}");
+            break;
+    }
+  @endif
+</script>
+<script type="text/javascript">
+    $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+</script>
+
+<script>
+$("#delete-button").click(function(){
+    if(confirm("Are you sure you want to delete this?")){
+      return true;
+    }
+    else{
+        return false;
+    }
+});
 </script>
 </html>

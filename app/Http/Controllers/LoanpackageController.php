@@ -28,7 +28,7 @@ class LoanpackageController extends Controller
     public function loan_add(Request $request){
         $add_loan=new Loanpakage();
         $add_loan->l_pakage_name=$request->l_pakage_name;
-        $add_loan->l_currency=$request->l_currency;
+  
         $add_loan->l_amount=$request->l_amount;
         $add_loan->l_Interest=$request->l_Interest;
         $add_loan->l_total_amount=$request->l_total_amount;
@@ -74,7 +74,7 @@ class LoanpackageController extends Controller
         //  return redirect()->back();
         DB::table('loanpakages')->where('id',$request->id)->update([
         'l_pakage_name'=>$request->l_pakage_name,
-        'l_currency'=>$request->l_currency,
+
         'l_amount'=>$request->l_amount,
         'l_Interest'=>$request->l_Interest,
         'l_total_amount'=>$request->l_total_amount,
